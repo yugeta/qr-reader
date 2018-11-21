@@ -1,5 +1,5 @@
 
-// 必要なモジュールのインストール
+# 必要なモジュールのインストール
 
 from flask import Flask, Response
 from pyzbar import pyzbar
@@ -12,7 +12,7 @@ import cv2
 import time
 
 
-// picameraアクセス準備
+# picameraアクセス準備
 
 camera = PiCamera()
 camera.resolution = (640, 480)
@@ -23,7 +23,7 @@ time.sleep(0.5)
 app = Flask(__name__)
 
 
-// エンドポイントの作成
+# エンドポイントの作成
 
 @app.route('/stream')
 def stream():
@@ -36,7 +36,7 @@ def gen():
         yield (b'--frame\r\n'
            b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
         
-// icameraからフレームを読み込み、QR認識とその位置を描画する関数の呼び出し
+# icameraからフレームを読み込み、QR認識とその位置を描画する関数の呼び出し
 
 def get_frame():
     camera.capture(rawCapture, format="bgr", use_video_port=True)
@@ -48,14 +48,14 @@ def get_frame():
     return jpeg.tobytes()
 
 
-// 取得したフレームを使ってQR認識と認識したポジションの描画
+# 取得したフレームを使ってQR認識と認識したポジションの描画
 
 def process_frame(frame):
     decoded_objs = decode(frame)
     draw_positions(frame, decoded_objs)
     
     
-// Pyzbarライブラリを使って実際にQRを認識するコード
+# Pyzbarライブラリを使って実際にQRを認識するコード
 
 def decode(frame):
     decoded_objs = pyzbar.decode(frame, scan_locations=True)
@@ -67,7 +67,7 @@ def decode(frame):
     return decoded_objs
   
   
-// 認識したQRコードの位置をフレームに描画する関数
+# 認識したQRコードの位置をフレームに描画する関数
 
 def draw_positions(frame, decoded_objs):
     for decoded_obj in decoded_objs:
@@ -77,9 +77,9 @@ def draw_positions(frame, decoded_objs):
                   (left + width, height + top),
                   (0, 255, 0), 2)
         
-// Flaskのサーバを立ち上げる処理
+# Flaskのサーバを立ち上げる処理
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", debug=False, threaded=True)
     
-// 
+
