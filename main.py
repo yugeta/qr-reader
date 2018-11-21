@@ -71,6 +71,11 @@ def decode(frame):
 
 def draw_positions(frame, decoded_objs):
     for decoded_obj in decoded_objs:
+        
+        # putText
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        cv2.putText(img,'OpenCV',(10,10), font, 4,(255,255,255),2,cv2.LINE_AA)
+        
         left, top, width, height = decoded_obj.rect
         frame = cv2.rectangle(frame,
                   (left, top),
@@ -78,8 +83,7 @@ def draw_positions(frame, decoded_objs):
 #                   (0, 255, 0), 2) # green
 #                   (255, 0 , 0), 2) # blue
                     (0, 0 , 255), 2) # red
-#         font = cv2.FONT_HERSHEY_SIMPLEX
-#         cv2.putText(img,'OpenCV',(10,500), font, 4,(255,255,255),2,cv2.LINE_AA)
+        
         
         
 # Flaskのサーバを立ち上げる処理
