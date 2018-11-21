@@ -91,7 +91,7 @@ def draw_positions(frame, decoded_objs):
         
         # putText
         font = cv2.FONT_HERSHEY_SIMPLEX
-        cv2.putText(frame,'OpenCV',(10,50), font, 2,(255,255,255),2,cv2.LINE_AA)
+        cv2.putText(frame, decoded_obj.data,(10,80), font, 2,(255,255,255),2,cv2.LINE_AA)
         
         
 # Flaskのサーバを立ち上げる処理
