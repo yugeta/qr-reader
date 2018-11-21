@@ -78,8 +78,8 @@ def draw_positions(frame, decoded_objs):
 #                   (0, 255, 0), 2) # green
 #                   (255, 0 , 0), 2) # blue
                     (0, 0 , 255), 2) # red
-        font = cv2.FONT_HERSHEY_SIMPLEX
-        cv2.putText(img,'OpenCV',(10,500), font, 4,(255,255,255),2,cv2.LINE_AA)
+#         font = cv2.FONT_HERSHEY_SIMPLEX
+#         cv2.putText(img,'OpenCV',(10,500), font, 4,(255,255,255),2,cv2.LINE_AA)
         
         
 # Flaskのサーバを立ち上げる処理
